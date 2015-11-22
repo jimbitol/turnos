@@ -1,3 +1,8 @@
-// Place your Spring DSL code here
+
+import webserver.TurnosService
+
 beans = {
+
+	turnosService(TurnosService)
+	
 }
