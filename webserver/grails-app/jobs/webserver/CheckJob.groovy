@@ -14,12 +14,12 @@ class CheckJob {
 
     def execute() {
         
-        //log.debug("INICIO JOB")
+        log.debug("INICIO JOB")
         System.out.println("INICIO JOB");
 
         turnosService.avisarQueHayTurnos()
 
-        //log.debug("FIN JOB")
+        log.debug("FIN JOB")
         System.out.println("FIN JOB");
     }
 }

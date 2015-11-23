@@ -115,11 +115,15 @@ log4j.main = {
     // Example of changing the log pattern for the default console appender:
     //
     appenders {
-        console name:'stdout', file:'/log/general.log', maxFileSize: 100, layout:pattern(conversionPattern: '%c{2} %m%n')
+        console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
         console name:'app', file:'/log/app.log', maxFileSize: 100, layout:pattern(conversionPattern: '%c{2} %m%n')
     }
 
-    debug additivity: false, app: ''
+    debug additivity: false, app: 'webserver.Checkjob'
+    debug additivity: false, app: 'webserver.TurnosService'
+
+    debug   'webserver.Checkjob',
+            'webserver.TurnosService'
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
