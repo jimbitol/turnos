@@ -10,7 +10,8 @@ class TurnosService {
 
     def avisarQueHayTurnos() {
 
-    	log.debug("Por avisar que hay turnos")
+    	//log.debug("Por avisar que hay turnos")
+		System.out.println("Por avisar que hay turnos");
 
         sendMail {
             to "c.a.br.er.am.8.1.5@gmail.com","m.e.rce.de.s.v.era.1.990@gmail.com"
@@ -18,6 +19,7 @@ class TurnosService {
             html g.render(template:'/mail/turno', model:[name:'prueba'])
         }
 
-        log.debug("YA AVISE")
+        //log.debug("YA AVISE")
+		System.out.println("YA AVISE");
     }
 }
