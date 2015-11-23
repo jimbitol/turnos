@@ -119,6 +119,10 @@ log4j.main = {
         console name:'app', file:'/log/app.log', maxFileSize: 100, layout:pattern(conversionPattern: '%c{2} %m%n')
     }
 
+    root {
+        debug 'stdout'
+    }
+
     debug additivity: false, app: 'webserver.Checkjob'
     debug additivity: false, app: 'webserver.TurnosService'
 
