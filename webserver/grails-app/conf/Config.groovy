@@ -91,7 +91,6 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        //grails.serverURL = "http://127.0.0.1:8080/${appName}"
     }
 }
 
