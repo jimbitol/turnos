@@ -62,11 +62,6 @@
         <url-pattern>*.gsp</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>GroovyTemplate</servlet-name>
-        <url-pattern>*.gsp</url-pattern>
-    </servlet-mapping>
-
     <session-config>
         <!-- 30 minutes -->
         <session-timeout>30</session-timeout>
