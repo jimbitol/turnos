@@ -1,10 +1,3 @@
-dataSource {
-    pooled = true
-    jmxExport = true
-    driverClassName = "org.h2.Driver"
-    username = "sa"
-    password = ""
-}
 hibernate {
     cache.use_second_level_cache = true
     cache.use_query_cache = false
@@ -49,8 +42,6 @@ environments {
                testOnBorrow = true
                testWhileIdle = true
                testOnReturn = false
-               jdbcInterceptors = "ConnectionState"
-               defaultTransactionIsolation = java.sql.Connection.TRANSACTION_READ_COMMITTED
             }
         }
     }
