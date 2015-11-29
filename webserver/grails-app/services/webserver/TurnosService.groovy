@@ -8,23 +8,30 @@ class TurnosService {
 
 	private static final log = LogFactory.getLog(this)
 
+    def mailService
+
     def avisarQueHayTurnos() {
 
     	log.debug("Por avisar que hay turnos")
 		println("Por avisar que hay turnos");
 
         try {
-            sendMail {
+
+            mailService.sendMail {
                 to "c.a.br.er.am.8.1.5@gmail.com","m.e.rce.de.s.v.era.1.990@gmail.com"
                 subject "Mail de prueba"
                 body "HOLA"
                 //html g.render(template:'/mail/turno', model:[name:'prueba'])
             }
+
+            log.debug("YA AVISE")
+            println("YA AVISE");
+
         } catch(Exception e) {
             log.error("ERROR CUSTOM: " + e.getMessage())
-        }
 
-        log.debug("YA AVISE")
-		println("YA AVISE");
+            log.debug("NO AVISE")
+            println("NO AVISE");
+        }
     }
 }
