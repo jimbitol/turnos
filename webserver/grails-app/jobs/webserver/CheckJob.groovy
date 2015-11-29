@@ -6,6 +6,8 @@ class CheckJob {
 
 	private static final log = LogFactory.getLog(this)
 
+    def concurrent = false
+    
     static triggers = {
       simple repeatInterval: 1000l * 60l // execute job once in 1 minute
     }

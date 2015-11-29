@@ -59,6 +59,6 @@ grails.project.dependency.resolution = {
         compile ":quartz:1.0.2"
         compile ":mail:1.0.7"
         compile ':cache:1.1.8'
-        compile ":gpars:0.3"
+        //compile ":gpars:0.3"
     }
 }
