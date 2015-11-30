@@ -46,19 +46,15 @@ grails.project.dependency.resolution = {
 
     dependencies {
         compile 'mysql:mysql-connector-java:5.1.29'
-        compile 'net.sf.ezmorph:ezmorph:1.0.6'
         compile "com.newrelic.agent.java:newrelic-api:3.16.1"
-        compile 'com.amazonaws:aws-java-sdk:1.3.32'
-        compile "org.apache.httpcomponents:httpcore:4.1"
     }
 
     plugins {
         build ":tomcat:7.0.55.2"
         compile ':functional-test:1.2.7'
         runtime ":hibernate4:4.3.8.1"
-        compile ":quartz:1.0.2"
+        compile ':quartz:1.0.2'
         compile ":mail:1.0.7"
         compile ':cache:1.1.8'
-        //compile ":gpars:0.3"
     }
 }
