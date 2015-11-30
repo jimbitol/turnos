@@ -119,9 +119,8 @@ log4j.main = {
     appenders {
         rollingFile name:"stdout", maxFileSize:'100MB', file:"general.log", maxBackupIndex:1, layout:logLayoutPattern
         rollingFile name:"appout", maxFileSize:'100MB', file:"turnos.log", maxBackupIndex:1, layout:logLayoutPattern
+        rollingFile name:"stacktraceLog", maxFileSize:'100MB', file: "stacktrace_turnos.log"
     }
-
-    appender.'stacktraceLog.File'="/var/log/turnos/stacktrace.log"
 
     root {
         info 'stdout'
