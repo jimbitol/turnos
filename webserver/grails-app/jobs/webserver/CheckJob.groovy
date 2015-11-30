@@ -9,8 +9,8 @@ class CheckJob {
     def concurrent = false
 
     static triggers = {
-      simple repeatInterval: 1000l * 60l * 10l// execute job once in 10 minutes
-    }
+        cron cronExpression = "0 */10 * * * ?"
+      }
 
     def turnosService
 

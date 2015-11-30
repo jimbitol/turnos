@@ -20,7 +20,6 @@ class TurnosService {
             mailService.sendMail {
                 to "c.a.br.er.am.8.1.5@gmail.com","m.e.rce.de.s.v.era.1.990@gmail.com"
                 subject "Mail de prueba"
-                body "HOLA"
                 //html g.render(template:'/mail/turno', model:[name:'prueba'])
             }
 
