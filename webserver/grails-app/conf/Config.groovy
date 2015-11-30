@@ -1,3 +1,6 @@
+import grails.util.Environment
+import org.apache.log4j.PatternLayout
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -43,6 +46,7 @@ grails.controllers.defaultScope = 'singleton'
 
 // GSP settings
 grails {
+
     views {
         gsp {
             encoding = 'UTF-8'
@@ -56,6 +60,17 @@ grails {
         }
         // escapes all not-encoded output at final stage of outputting
         // filteringCodecForContentType.'text/html' = 'html'
+    }
+
+    mail {
+        host = "smtp.gmail.com"
+        port = 465
+        username = "turnosmm@gmail.com"
+        password = "lklk1234"
+        props = ["mail.smtp.auth":"true",
+                "mail.smtp.socketFactory.port":"465",
+                "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+                "mail.smtp.socketFactory.fallback":"false"]
     }
 }
 
@@ -96,44 +111,35 @@ environments {
 }
 
 
-grails {
-    mail {
-        host = "smtp.gmail.com"
-        port = 465
-        username = "turnosmm@gmail.com"
-        password = "lklk1234"
-        props = ["mail.smtp.auth":"true",
-                "mail.smtp.socketFactory.port":"465",
-                "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
-                "mail.smtp.socketFactory.fallback":"false"]
-    }
-}
-
-
 // log4j configuration
 log4j.main = {
-    // Example of changing the log pattern for the default console appender:
-    //
+    
+    def logLayoutPattern = new PatternLayout("%d [%t] %-5p %c %x - %m%n")
+
     appenders {
-        console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-        console name:'app', file:'/log/app.log', maxFileSize: 100, layout:pattern(conversionPattern: '%c{2} %m%n')
+        rollingFile name:"stdout", maxFileSize:'100MB', file:"general.log", maxBackupIndex:1, layout:logLayoutPattern
+        rollingFile name:"appout", maxFileSize:'100MB', file:"turnos.log", maxBackupIndex:1, layout:logLayoutPattern
+        rollingFile name:"stacktrace", maxFileSize:'100MB', file: "/var/logs/turnos/stacktrace.log"
     }
 
-    debug additivity: false, app: 'webserver.Checkjob'
-    debug additivity: false, app: 'webserver.TurnosService'
+    //appender.'stacktraceLog.File'="/var/log/turnos/stacktrace.log"
 
-    debug   'webserver.Checkjob',
-            'webserver.TurnosService'
+    root {
+        info 'stdout'
+    }
 
-    error  'org.codehaus.groovy.grails.web.servlet',        // controllers
-           'org.codehaus.groovy.grails.web.pages',          // GSP
-           'org.codehaus.groovy.grails.web.sitemesh',       // layouts
-           'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
-           'org.codehaus.groovy.grails.web.mapping',        // URL mapping
-           'org.codehaus.groovy.grails.commons',            // core / classloading
-           'org.codehaus.groovy.grails.plugins',            // plugins
-           'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
-           'org.springframework',
-           'org.hibernate',
-           'net.sf.ehcache.hibernate'
+    debug additivity: false, appout: 'webserver.Checkjob'
+    debug additivity: false, appout: 'webserver.TurnosService'
+
+    error   'org.codehaus.groovy.grails.web.servlet',  //  controllers
+            'org.codehaus.groovy.grails.web.pages', //  GSP
+            'org.codehaus.groovy.grails.web.sitemesh', //  layouts
+            'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
+            'org.codehaus.groovy.grails.web.mapping', // URL mapping
+            'org.codehaus.groovy.grails.commons', // core / classloading
+            'org.codehaus.groovy.grails.plugins', // plugins
+            'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
+            'org.springframework',
+            'org.hibernate',
+            'net.sf.ehcache.hibernate'
 }
