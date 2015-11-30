@@ -47,6 +47,7 @@ grails.project.dependency.resolution = {
     dependencies {
         compile 'mysql:mysql-connector-java:5.1.29'
         compile "com.newrelic.agent.java:newrelic-api:3.16.1"
+        compile "org.codehaus.gpars:gpars:1.1.0"
     }
 
     plugins {

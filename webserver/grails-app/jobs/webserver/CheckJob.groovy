@@ -9,7 +9,7 @@ class CheckJob {
     def concurrent = false
 
     static triggers = {
-        cron cronExpression = "0 */10 * * * ?"
+        cron cronExpression = "0 0/10 * * * ?"
       }
 
     def turnosService
@@ -17,11 +17,9 @@ class CheckJob {
     def execute() {
         
         log.debug("INICIO JOB")
-        println("INICIO JOB");
 
         turnosService.avisarQueHayTurnos()
 
         log.debug("FIN JOB")
-        println("FIN JOB");
     }
 }

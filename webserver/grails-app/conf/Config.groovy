@@ -117,9 +117,8 @@ log4j.main = {
     def logLayoutPattern = new PatternLayout("%d [%t] %-5p %c %x - %m%n")
 
     appenders {
-        rollingFile name:"stdout", maxFileSize:'100MB', file:"general.log", maxBackupIndex:1, layout:logLayoutPattern
-        rollingFile name:"appout", maxFileSize:'100MB', file:"turnos.log", maxBackupIndex:1, layout:logLayoutPattern
-        rollingFile name:"stacktraceLog", maxFileSize:'100MB', file: "stacktrace_turnos.log"
+        rollingFile name:"stdout", maxFileSize:'100MB', file:"/turnos/general.log", maxBackupIndex:1, layout:logLayoutPattern
+        rollingFile name:"appout", maxFileSize:'100MB', file:"/turnos/turnos.log", maxBackupIndex:1, layout:logLayoutPattern
     }
 
     root {
