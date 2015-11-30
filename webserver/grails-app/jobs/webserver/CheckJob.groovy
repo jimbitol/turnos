@@ -10,7 +10,7 @@ class CheckJob {
 
     static triggers = {
         cron cronExpression = "0 0/10 * * * ?"
-      }
+    }
 
     def turnosService
 
