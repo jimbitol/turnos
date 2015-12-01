@@ -9,7 +9,7 @@ class CheckJob {
     def concurrent = false
 
     static triggers = {
-        cron cronExpression = "0 0/10 * * * ?"
+        cron name: 'checkTurnosTrigger', cronExpression: "0 0/10 * * * ?"
     }
 
     def turnosService
