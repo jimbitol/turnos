@@ -10,7 +10,8 @@ class TurnosService {
 
     def avisarQueHayTurnos() {
 
-    	log.debug("Por avisar que hay turnos")
+        log.debug("Por avisar que hay turnos")
+        println("Por avisar que hay turnos")
 
         try {
 
@@ -22,11 +23,14 @@ class TurnosService {
             }
 
             log.debug("YA AVISE")
+            println("YA AVISE")
 
         } catch(Exception e) {
 
             log.error("ERROR CUSTOM: " + e.getMessage())
+            println("ERROR CUSTOM: " + e.getMessage())
             log.debug("NO AVISE")
+            println("NO AVISE")
         }
     }
 }

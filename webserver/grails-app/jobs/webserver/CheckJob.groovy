@@ -17,9 +17,11 @@ class CheckJob {
     def execute() {
         
         log.debug("INICIO JOB")
+        println("INICIO JOB")
 
         turnosService.avisarQueHayTurnos()
 
         log.debug("FIN JOB")
+        println("FIN JOB")
     }
 }
